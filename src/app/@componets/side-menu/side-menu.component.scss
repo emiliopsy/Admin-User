@@ -1,8 +1,8 @@
 .menu-content {
     width: 100%;
-    background-color: salmon;
+    background-color: var(--bg-white-color);
     height: 100%;
-    padding: 40px 15px 20px;
+    padding-top: 2.25rem;
 }
 
 .menu-item {
@@ -10,18 +10,22 @@
     justify-content: flex-start;
     align-content: center;
     align-items: center;
-    background-color: seagreen;
-    margin: 5px 0px;
+    padding: 0.75rem 1rem;
     img {
         // font-size: clamp(27px, 2.5vw, 2rem);
-        width: clamp(25px, 2.5vw, 2rem);
+        width: 20px;
         margin-right: 15px;
+        color: var(--text-grey-color);
+        fill: #8f9bc3;
     }
 }
 
 .item-name {
     margin: 0px;
-    font-size: clamp(1rem, 2vw, 1.5rem);
+    // font-size: clamp(1rem, 2vw, 1.5rem);
+    font-size: 0.8125rem;
+    line-height: 1.5rem;
+    letter-spacing: 1px;
     font-weight: 300;
     vertical-align: middle;
     text-transform: capitalize;
@@ -31,15 +35,16 @@
     display: flex;
     justify-content: flex-start;
     align-items: center;
-    font-size: clamp(1rem, 2.5vw, 1.5rem);
-    color: var(--bg-grey-color);
     border-top: 1px solid var(--bg-grey-color);
     border-bottom: 1px solid var(--bg-grey-color);
-    height: 40px;
-    margin: 30px -20px 10px;
+    padding: 0.75rem 1rem;
     h6 {
+        font-size: 0.8125rem;
+        line-height: 1.5rem;
         margin: 0px;
-        padding-left: 10px;
+        letter-spacing: 2px;
+        // color: var(--bg-grey-color);
+        color: #8f9bc3;
     }
 }
 

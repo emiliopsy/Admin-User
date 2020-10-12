@@ -1,5 +1,5 @@
 .main-section {
-    background-color: var(--primary-color);
+    background-color: var(--bg-white-color);
     padding: 5px 10px;
     height: 60px;
     max-height: 80px;
@@ -23,5 +23,5 @@
     text-align: center;
     margin: auto;
     font-family: var(--titles-font);
-    text-transform: uppercase;
+    text-transform: capitalize;
 }
