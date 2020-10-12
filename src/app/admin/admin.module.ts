@@ -9,6 +9,7 @@ import { DeleteComponent } from './delete/delete.component';
 import { HeaderComponent } from '../@componets/header/header.component';
 import { SideMenuComponent } from '../@componets/side-menu/side-menu.component';
 import { MatSidenavModule } from '@angular/material/sidenav';
+import { MatIconModule } from '@angular/material/icon';
 
 
 @NgModule({
@@ -23,7 +24,8 @@ import { MatSidenavModule } from '@angular/material/sidenav';
   imports: [
     CommonModule,
     AdminRoutingModule,
-    MatSidenavModule
+    MatSidenavModule,
+    MatIconModule
   ]
 })
 export class AdminModule { }
