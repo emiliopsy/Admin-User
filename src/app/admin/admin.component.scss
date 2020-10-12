@@ -1,0 +1,17 @@
+mat-sidenav-container {
+    background-color: sandybrown;
+    height: calc(100% - 60px);
+    z-index: -1;
+}
+
+mat-sidenav {
+    width: 25vw;
+    min-width: 150px;
+    max-width: 300px;
+    background-color: #EDEDED;
+}
+
+mat-sidenav-content {
+    background-color: #EDEDED;
+    padding: 20px;
+}

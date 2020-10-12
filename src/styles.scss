@@ -1,1 +1,38 @@
-/* You can add global styles to this file, and also import other style files */
+@import "assets/scss/fonts";
+html,
+body {
+    height: 100vh;
+}
+
+body {
+    margin: 0;
+    font-family: var(--primary-font), "Helvetica Neue", sans-serif;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+///sas variables
+:root {
+    --primary-color: #d348f0;
+    --succes-color: #83c20a;
+    --info-color: #008cd8;
+    --warnig-color: #ffd623;
+    --danger-color: #db3b40;
+    --bg-grey-color: #ededed;
+    --primary-gradient: linear-gradient( 117.55deg, #e62ed6 13.12%, #e230e3 36.64%, #dc33ff 85.95%);
+    // fonts
+    --primary-font: "Roboto";
+    --titles-font: "Mulish";
+}
+
+@font-face {
+    font-family: "Roboto";
+    src: url("./assets/fonts/Roboto/Roboto-Regular.ttf");
+}
+
+@font-face {
+    font-family: "Mulish";
+    src: url("./assets/fonts/Mulish/Mulish-Regular.ttf");
+}
