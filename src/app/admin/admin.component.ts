@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { MatSidenav } from '@angular/material/sidenav';
+import { SidemenuService } from '../services/sidemenu.service';
 
 @Component({
   selector: 'app-admin',
@@ -7,9 +9,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AdminComponent implements OnInit {
 
-  constructor() { }
+  @ViewChild('sidenav', { static: true }) public sidenav: MatSidenav;
+
+  constructor(private sideMenu: SidemenuService) { }
 
   ngOnInit(): void {
+  }
+
+  ngAfterViewInit(): void {
+    console.log("sidenav", this.sidenav)
+    this.sideMenu.setSidenav(this.sidenav);
   }
 
 }
