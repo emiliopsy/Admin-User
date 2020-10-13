@@ -17,7 +17,6 @@ export class AdminComponent implements OnInit {
   }
 
   ngAfterViewInit(): void {
-    console.log("sidenav", this.sidenav)
     this.sideMenu.setSidenav(this.sidenav);
   }
 

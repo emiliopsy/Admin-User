@@ -1,4 +1,12 @@
-.conten {
-    width: 100%;
-    height: 100%;
+.loanding {
+    display: grid;
+    place-items: center;
+    min-height: 50vh;
+}
+
+.error {
+    padding: 20px 10px;
+    h4 {
+        color: var(--danger-color);
+    }
 }

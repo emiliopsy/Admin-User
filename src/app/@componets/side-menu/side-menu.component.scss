@@ -20,6 +20,14 @@
     }
 }
 
+.menu-item:hover {
+    cursor: pointer;
+    .item-name {
+        color: var(--primary-color);
+        font-size: 0.9125rem;
+    }
+}
+
 .item-name {
     margin: 0px;
     // font-size: clamp(1rem, 2vw, 1.5rem);
