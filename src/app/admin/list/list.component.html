@@ -6,55 +6,70 @@
     </section>
 
     <section *ngIf=" !loanding && !haserror" class="card-body">
-        <p-table [value]="users" [responsive]="true">
+        <p-table [value]="users" [responsive]="true" [rows]="10" [showCurrentPageReport]="true" [loading]="loanding" [paginator]="true" currentPageReportTemplate=" {first} a {last} de {totalRecords} ">
             <ng-template pTemplate="header">
                 <tr>
-
-                    <th pSortableColumn="name">Nombre
-                        <p-sortIcon field="name"></p-sortIcon>
+                    <th pSortableColumn="nrousu">N°
+                        <p-sortIcon field="nrousu"></p-sortIcon>
                     </th>
-                    <th pSortableColumn="lastName">Apellido
-                        <p-sortIcon field="lastName"></p-sortIcon>
+                    <th pSortableColumn="usuario">Usuario
+                        <p-sortIcon field="usuario"></p-sortIcon>
                     </th>
-                    <th pSortableColumn="email">Correo
+                    <th pSortableColumn="nombre">Nombre
+                        <p-sortIcon field="nombre"></p-sortIcon>
+                    </th>
+                    <th pSortableColumn="activo">Activo
+                        <p-sortIcon field="activo"></p-sortIcon>
+                    </th>
+                    <th pSortableColumn="email">Email
                         <p-sortIcon field="email"></p-sortIcon>
                     </th>
-                    <th pSortableColumn="phone">Tel.
-                        <p-sortIcon field="phone"></p-sortIcon>
+                    <th pSortableColumn="clave">Clave
+                        <p-sortIcon field="clave"></p-sortIcon>
                     </th>
-                    <th pSortableColumn="direcction">Dir.
-                        <p-sortIcon field="direcction"></p-sortIcon>
+                    <th pSortableColumn="direccion">Dir.
+                        <p-sortIcon field="direccion"></p-sortIcon>
+                    </th>
+                    <th pSortableColumn="telefono">Tel.
+                        <p-sortIcon field="telefono"></p-sortIcon>
                     </th>
                 </tr>
-                <tr>
-
-                </tr>
-
 
             </ng-template>
             <ng-template pTemplate="body" let-user>
                 <tr class="p-selectable-row">
-
+                    <td>
+                        <span class="p-column-title">N°</span>
+                        <span>{{user.nrousu}}</span>
+                    </td>
+                    <td>
+                        <span class="p-column-title">Usuario</span>
+                        <img class="avatar-img" [alt]="user.name" [src]="user.photo? user.photo :'../../../assets/imgs/placeholder-user-image.jpg'" width="42" style="vertical-align: middle" />
+                        <span class="image-text">{{user.usuario}}</span>
+                    </td>
                     <td>
                         <span class="p-column-title">Nombre</span>
-                        <img class="avatar-img" [alt]="user.name" src="../../../assets/imgs/{{user.photo}}" width="42" style="vertical-align: middle" />
-                        <span class="image-text">{{user.name}}</span>
+                        <span>{{user.nombre +" " + user.apellido }}</span>
                     </td>
                     <td>
-                        <span class="p-column-title">Apellido</span>
-                        <span>{{user.lastName}}</span>
+                        <span class="p-column-title">Activo</span>
+                        <span>{{user.activo}}</span>
                     </td>
                     <td>
-                        <span class="p-column-title">Correo</span>
+                        <span class="p-column-title">Email</span>
                         <span>{{user.email}}</span>
                     </td>
                     <td>
-                        <span class="p-column-title">Tel.</span>
-                        <span>{{user.phone}}</span>
+                        <span class="p-column-title">Clave</span>
+                        <span>{{user.clave}}</span>
                     </td>
                     <td>
                         <span class="p-column-title">Dir.</span>
-                        <span>{{user.direcction}}</span>
+                        <span>{{user.direccion}}</span>
+                    </td>
+                    <td>
+                        <span class="p-column-title">Tel.</span>
+                        <span>{{user.telefono}}</span>
                     </td>
 
                 </tr>

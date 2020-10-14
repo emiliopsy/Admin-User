@@ -1,6 +1,67 @@
 <div class="main-card">
     <section class="card-header">Ingresar los datos del nuevo usuario</section>
     <section class="card-body">
-        content
+        <form [formGroup]="registerForm">
+
+            <mat-form-field appearance="outline">
+                <mat-label>Outline form field</mat-label>
+                <input matInput placeholder="Placeholder">
+                <mat-hint>Hint</mat-hint>
+            </mat-form-field>
+
+            <div class="p-field">
+                <label for="username1">Username</label>
+                <input id="username1" type="username" aria-describedby="username1-help" pInputText>
+                <small id="username1-help">Enter your username to reset your password.</small>
+            </div>
+
+            <!--
+            <div class="p-field">
+                <label for="username1">Username</label>
+                <input id="username1" aria-describedby="username1-help" formControlName="usuario" pInputText>
+                <small>Enter your username to reset your password.</small>
+            </div>
+            <div class="p-field">
+                <label for="username1">Activo</label>
+                <input id="username1" formControlName="activo" pInputText>
+                <small>Enter your username to reset your password.</small>
+            </div>
+            <div class="p-field">
+                <label for="username1">Clave</label>
+                <input id="username1" formControlName="clave" pInputText>
+                <small>Enter your username to reset your password.</small>
+            </div>
+            <div class="p-field">
+                <label for="username1">Nombre</label>
+                <input id="username1" formControlName="nombre" pInputText>
+                <small>Enter your username to reset your password.</small>
+            </div>
+            <div class="p-field">
+                <label for="username1">Apellido</label>
+                <input id="username1" formControlName="apellido" pInputText>
+                <small>Enter your username to reset your password.</small>
+            </div>
+            <div class="p-field">
+                <label for="username1">Email</label>
+                <input id="username1" formControlName="email" pInputText>
+                <small>Enter your username to reset your password.</small>
+            </div>
+            <div class="p-field">
+                <label for="username1">Direccion</label>
+                <input id="username1" formControlName="direccion" pInputText>
+                <small>Enter your username to reset your password.</small>
+            </div>
+            <div class="p-field">
+                <label for="username1">Telefono</label>
+                <input id="username1" formControlName="telefono" pInputText>
+                <small>Enter your username to reset your password.</small>
+            </div>
+            <div class="p-field">
+                <label for="username1">Imagen</label>
+                <input id="username1" formControlName="imagen64" pInputText>
+                <small>Enter your username to reset your password.</small>
+            </div> -->
+
+        </form>
     </section>
 </div>

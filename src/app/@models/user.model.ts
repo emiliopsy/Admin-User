@@ -1,30 +1,39 @@
 export class User {
-  id?: Number;
-  name: String;
-  lastName: String;
+
+  nrousu: Number;
+  usuario: String;
+  activo: Boolean;
+  clave: String;
+  nombre?: String;
+  apellido?: String;
   email: String;
-  photo: String;
-  direcction: String;
-  phone: String;
+  direccion?: String;
+  telefono?: String;
+  imagen64?: Blob;
 
   constructor(
     user: User | {
-      id?: Number,
-      name: String,
-      lastName: String,
+      nrousu: Number,
+      usuario: String,
+      activo: Boolean,
+      clave: String,
+      nombre?: String,
+      apellido?: String,
       email: String,
-      photo: String,
-      direcction: String,
-      phone: String,
-
+      direccion?: String,
+      telefono?: String,
+      imagen64?: Blob,
     }
   ) {
-    this.id = user.id ? user.id : null;
-    this.name = user.name;
-    this.lastName = user.lastName;
+    this.nrousu = user.nrousu;
+    this.usuario = user.usuario;
+    this.activo = user.activo;
+    this.clave = user.clave;
+    this.nombre = user.nombre ? user.nombre : '';
+    this.apellido = user.apellido ? user.apellido : '';
     this.email = user.email;
-    this.photo = user.photo ? user.photo : 'placeholder-user-image.jpg';
-    this.direcction = user.direcction;
-    this.phone = user.phone;
+    this.direccion = user.direccion ? user.direccion : "";
+    this.telefono = user.telefono ? user.telefono : "";
+    this.imagen64 = user.imagen64 ? user.imagen64 : null;
   }
 }

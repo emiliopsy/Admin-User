@@ -1,0 +1,34 @@
+<section class="wraper">
+
+    <form [formGroup]="loginForm">
+        <div class="form">
+            <div class="imput">
+                <div class="p-inputgroup">
+                    <span class="p-inputgroup-addon"><i class="pi pi-user"></i></span>
+                    <input formControlName="user" class="inpu-user" type="text" pInputText placeholder="Usuario">
+                </div>
+                <small *ngIf="!user.valid && user.touched" class="p-invalid">Este campo es requerido</small>
+            </div>
+
+            <div class="imput">
+                <div class="p-inputgroup">
+                    <span class="p-inputgroup-addon"><i class="pi pi-circle-on"></i></span>
+                    <input formControlName="pass" type="{{showPass? 'text':'password' }}" pInputText placeholder="Contraseña">
+                    <span *ngIf="showPass" (click)="togglePass()" class="p-inputgroup-addon"><i class="pi pi-eye-slash"></i></span>
+                    <span *ngIf="!showPass" (click)="togglePass()" class="p-inputgroup-addon"><i class="pi pi-eye"></i></span>
+                </div>
+                <small *ngIf="!pass.valid && pass.touched" class="p-invalid">Este campo es requerido</small>
+            </div>
+
+            <button *ngIf="!loading" class="loguin-btn" (click)="submitLog()" [disabled]="!loginForm.valid" pButton type="button" label="Ingresar"></button>
+            <button *ngIf="loading" class="loguin-btn" [disabled]="loading" pButton type="button" label="Ingresar"></button>
+
+        </div>
+    </form>
+
+
+
+
+
+
+</section>

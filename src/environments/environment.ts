@@ -4,7 +4,8 @@
 
 export const environment = {
   production: false,
-  BaseUrl: "https://jsonplaceholder.typicode.com"
+  GetUserUrl: "http://190.210.222.36:8083//web/pdo/DemoWS/demo/obtenerUsuarios",
+  AuthUrl: "http://190.210.222.36:8083//static/auth/j_spring_security_check",
 };
 
 /*

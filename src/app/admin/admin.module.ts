@@ -12,6 +12,10 @@ import { MatIconModule } from '@angular/material/icon';
 import { EditComponent } from './edit/edit.component';
 import { TableModule } from 'primeng/table';
 import { ProgressSpinnerModule } from 'primeng/progressspinner';
+import { ReactiveFormsModule } from '@angular/forms';
+import { InputTextModule } from 'primeng/inputtext';
+import { MatFormFieldModule, } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
 
 
 @NgModule({
@@ -29,7 +33,12 @@ import { ProgressSpinnerModule } from 'primeng/progressspinner';
     MatSidenavModule,
     MatIconModule,
     TableModule,
-    ProgressSpinnerModule
+    ProgressSpinnerModule,
+    ReactiveFormsModule,
+    InputTextModule,
+    MatFormFieldModule,
+    MatInputModule,
+
   ]
 })
 export class AdminModule { }

@@ -16,17 +16,16 @@ export class ErrorInterceptorService implements HttpInterceptor {
       "Authorization": "emilio Biasizo"
     });
 
-    const clone = req.clone({ headers })
+    const clone = req.clone({ withCredentials: true })
 
     return next.handle(clone)
       .pipe(
-        retry(2),
         catchError(this.handleError),
       );
   }
 
   handleError(error: HttpErrorResponse) {
-    console.log("Ocurrio un error",error);
+    console.log("Ocurrio un error", error);
     return throwError(error)
   }
 }

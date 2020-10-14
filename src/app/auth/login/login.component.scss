@@ -1,0 +1,38 @@
+.wraper {
+    display: grid;
+    place-items: center;
+    height: 100vh;
+    // background-color: tomato;
+}
+
+.form {
+    // height: 30vh;
+    // background-color: turquoise;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+.imput {
+    margin: 15px 5px;
+}
+
+.inpu-user {
+    width: 100%;
+}
+
+.p-inputgroup {
+    display: flex;
+}
+
+.p-inputgroup-addon {
+    display: grid;
+    place-items: center;
+}
+
+.loguin-btn {
+    align-self: center;
+    width: 50%;
+    margin: 3vh auto;
+}
