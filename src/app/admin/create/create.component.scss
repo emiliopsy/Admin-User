@@ -1,0 +1,15 @@
+.grilla {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    // background-color: turquoise;
+}
+
+.row {
+    display: grid;
+    grid-gap: 1rem;
+    width: 100%;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+}
