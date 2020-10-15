@@ -39,14 +39,53 @@ export class UserService {
       })
     }
 
-    console.log("body", body);
-
-    return this._http.put<User[]>(`${environment.GestionarUsuarios}`,body)
+    return this._http.put<User[]>(`${environment.GestionarUsuarios}`, body)
       .pipe(
-        tap((response: any) => console.log("response", response)),
         map((resp: any) => {
           return resp;
         })
       )
   }
+
+  deletUser(user: User) {
+    let body = {
+      request: new Request({
+        pcaccion: "delete",
+        dsUsuariosDemo: new DsUsuariosDemo({
+          dsUsuariosDemo: new Ttusuarios({
+            ttusuarios: [user],
+          })
+        })
+      })
+    }
+
+    return this._http.put<User[]>(`${environment.GestionarUsuarios}`, body)
+      .pipe(
+        map((resp: any) => {
+          return resp;
+        })
+      )
+  }
+
+  editUser(user: User) {
+    let body = {
+      request: new Request({
+        pcaccion: "update",
+        dsUsuariosDemo: new DsUsuariosDemo({
+          dsUsuariosDemo: new Ttusuarios({
+            ttusuarios: [user],
+          })
+        })
+      })
+    }
+
+    return this._http.put<User[]>(`${environment.GestionarUsuarios}`, body)
+      .pipe(
+        map((resp: any) => {
+          return resp;
+        })
+      )
+  }
+
+
 }

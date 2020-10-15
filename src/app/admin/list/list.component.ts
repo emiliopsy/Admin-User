@@ -17,6 +17,7 @@ export class ListComponent implements OnInit {
   haserror: Boolean = false;
   loanding: Boolean = true;
   tableHeaders: any;
+  reloadtable: Boolean = false;
 
   items: MenuItem[];
 
@@ -32,7 +33,7 @@ export class ListComponent implements OnInit {
     this.headerService.title.next("Usuarios");
     this.getUserData();
     this.items = [
-      { label: 'Editar', icon: 'pi pi-pencil', command: (val) => { console.log("val",val) }},
+      { label: 'Editar', icon: 'pi pi-pencil', command: (val) => { console.log("val", val) } },
       { label: 'Borrar', icon: 'pi pi-trash' },
     ];
   }
@@ -53,12 +54,45 @@ export class ListComponent implements OnInit {
     this.loanding = false;
   }
 
-  deleteUser(user){
-    console.log("borar usuario",user);
-
+  deleteUser(user) {
+    // this.refres()
+    console.log("borar usuario", user);
+    this.userService.deletUser(user).subscribe(resp => {
+      // this.refresDone()
+      console.log("res", resp.response.pcErr);
+      if (resp.response.pcErr) {
+        console.log("resp.response.pcErr", resp.response.pcErr);
+      } else {
+        console.log("Se borro el susario exitosamente");
+        this.uddateTable(user)
+      }
+    }, (eror => { this.handdleError(eror); }))
   }
 
-  editUser(user){
+  handdleError(error) {
+    // this.refresDone()
+    console.log("error", error);
+  }
+
+
+  uddateTable(user) {
+    this.users.splice(this.users.findIndex(x => x == user), 1)
+    this.users = [...this.users];
+  }
+
+  refres() {
+    this.reloadtable = true;
+    this.loanding = !this.loanding
+
+  }
+  refresDone() {
+    this.reloadtable = false;
+    this.loanding = !this.loanding
+  }
+
+
+
+  editUser(user) {
     console.log("editar usuario", user);
   }
 

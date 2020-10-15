@@ -5,90 +5,92 @@
         <p-progressSpinner></p-progressSpinner>
     </section>
 
-    <section *ngIf=" !loanding && !haserror" class="card-body">
-        <p-table #dt styleClass="p-datatable-responsive-demo" stateStorage="local" stateKey="statedemo-local" [rowHover]="true" [value]="users" [responsive]="true" [rows]="25" [showCurrentPageReport]="true" [loading]="loanding" [paginator]="true" currentPageReportTemplate=" {first} a {last} de {totalRecords} ">
-            <ng-template pTemplate="header">
-                <tr>
-                    <th pSortableColumn="nrousu">N°
-                        <p-sortIcon field="nrousu"></p-sortIcon>
-                    </th>
-                    <th pSortableColumn="usuario">Usuario
-                        <p-sortIcon field="usuario"></p-sortIcon>
-                    </th>
-                    <th pSortableColumn="nombre">Nombre
-                        <p-sortIcon field="nombre"></p-sortIcon>
-                    </th>
-                    <th pSortableColumn="activo">Activo
-                        <p-sortIcon field="activo"></p-sortIcon>
-                    </th>
-                    <th pSortableColumn="email">Email
-                        <p-sortIcon field="email"></p-sortIcon>
-                    </th>
-                    <th pSortableColumn="clave">Clave
-                        <p-sortIcon field="clave"></p-sortIcon>
-                    </th>
-                    <th pSortableColumn="direccion">Dir.
-                        <p-sortIcon field="direccion"></p-sortIcon>
-                    </th>
-                    <th pSortableColumn="telefono">Tel.
-                        <p-sortIcon field="telefono"></p-sortIcon>
-                    </th>
-                    <th></th>
-                </tr>
+    <section *ngIf="!loanding && !haserror" class="card-body">
+        <div *ngIf="!reloadtable">
+            <p-table #dt styleClass="p-datatable-responsive-demo" stateStorage="local" stateKey="statedemo-local" [rowHover]="true" [value]="users" [responsive]="true" [rows]="25" [showCurrentPageReport]="true" [loading]="loanding" [paginator]="true" currentPageReportTemplate=" {first} a {last} de {totalRecords} ">
+                <ng-template pTemplate="header">
+                    <tr>
+                        <th pSortableColumn="nrousu">N°
+                            <p-sortIcon field="nrousu"></p-sortIcon>
+                        </th>
+                        <th pSortableColumn="usuario">Usuario
+                            <p-sortIcon field="usuario"></p-sortIcon>
+                        </th>
+                        <th pSortableColumn="nombre">Nombre
+                            <p-sortIcon field="nombre"></p-sortIcon>
+                        </th>
+                        <th pSortableColumn="activo">Activo
+                            <p-sortIcon field="activo"></p-sortIcon>
+                        </th>
+                        <th pSortableColumn="email">Email
+                            <p-sortIcon field="email"></p-sortIcon>
+                        </th>
+                        <th pSortableColumn="clave">Clave
+                            <p-sortIcon field="clave"></p-sortIcon>
+                        </th>
+                        <th pSortableColumn="direccion">Dir.
+                            <p-sortIcon field="direccion"></p-sortIcon>
+                        </th>
+                        <th pSortableColumn="telefono">Tel.
+                            <p-sortIcon field="telefono"></p-sortIcon>
+                        </th>
+                        <th></th>
+                    </tr>
 
-            </ng-template>
-            <ng-template pTemplate="body" let-user>
-                <tr class="p-selectable-row">
-                    <td>
-                        <span class="p-column-title">N°</span>
-                        <span>{{user.nrousu}}</span>
-                    </td>
-                    <td>
-                        <span class="p-column-title">Usuario</span>
-                        <img class="avatar-img" [alt]="user.name" [src]="user.imagen64? user.imagen64 :'../../../assets/imgs/placeholder-user-image.jpg'" width="42" style="vertical-align: middle" />
-                        <span class="image-text">{{user.usuario}}</span>
-                    </td>
-                    <td>
-                        <span class="p-column-title">Nombre</span>
-                        <span>{{user.nombre +" " + user.apellido }}</span>
-                    </td>
-                    <td>
-                        <span class="p-column-title">Activo</span>
-                        <span>{{user.activo}}</span>
-                    </td>
-                    <td>
-                        <span class="p-column-title">Email</span>
-                        <span>{{user.email}}</span>
-                    </td>
-                    <td>
-                        <span class="p-column-title">Clave</span>
-                        <span>{{user.clave}}</span>
-                    </td>
-                    <td>
-                        <span class="p-column-title">Dir.</span>
-                        <span>{{user.direccion}}</span>
-                    </td>
-                    <td>
-                        <span class="p-column-title">Tel.</span>
-                        <span>{{user.telefono}}</span>
-                    </td>
-                    <td>
-                        <div class="acction-btn">
-                            <button (click)="editUser(user)" mat-mini-fab color="primary"><span class="material-icons edit-icon">edit</span></button>
-                            <button (click)="deleteUser(user)" mat-mini-fab color="warn"><span class="material-icons">delete</span></button>
-                        </div>
-                    </td>
+                </ng-template>
+                <ng-template pTemplate="body" let-user>
+                    <tr class="p-selectable-row">
+                        <td>
+                            <span class="p-column-title">N°</span>
+                            <span>{{user.nrousu}}</span>
+                        </td>
+                        <td>
+                            <span class="p-column-title">Usuario</span>
+                            <img class="avatar-img" [alt]="user.name" [src]="user.imagen64? user.imagen64 :'../../../assets/imgs/placeholder-user-image.jpg'" width="42" style="vertical-align: middle" />
+                            <span class="image-text">{{user.usuario}}</span>
+                        </td>
+                        <td>
+                            <span class="p-column-title">Nombre</span>
+                            <span>{{user.nombre +" " + user.apellido }}</span>
+                        </td>
+                        <td>
+                            <span class="p-column-title">Activo</span>
+                            <span>{{user.activo}}</span>
+                        </td>
+                        <td>
+                            <span class="p-column-title">Email</span>
+                            <span>{{user.email}}</span>
+                        </td>
+                        <td>
+                            <span class="p-column-title">Clave</span>
+                            <span>{{user.clave}}</span>
+                        </td>
+                        <td>
+                            <span class="p-column-title">Dir.</span>
+                            <span>{{user.direccion}}</span>
+                        </td>
+                        <td>
+                            <span class="p-column-title">Tel.</span>
+                            <span>{{user.telefono}}</span>
+                        </td>
+                        <td>
+                            <div class="acction-btn">
+                                <button (click)="editUser(user)" mat-mini-fab color="primary"><span class="material-icons edit-icon">edit</span></button>
+                                <button (click)="deleteUser(user)" mat-mini-fab color="warn"><span class="material-icons">delete</span></button>
+                            </div>
+                        </td>
 
-                </tr>
-            </ng-template>
-            <ng-template pTemplate="emptymessage" let-columns>
-                <tr>
-                    <td [attr.colspan]="columns.length">
-                        NO hay datos
-                    </td>
-                </tr>
-            </ng-template>
-        </p-table>
+                    </tr>
+                </ng-template>
+                <ng-template pTemplate="emptymessage" let-columns>
+                    <tr>
+                        <td [attr.colspan]="columns.length">
+                            NO hay datos
+                        </td>
+                    </tr>
+                </ng-template>
+            </p-table>
+        </div>
     </section>
 
     <section *ngIf="haserror" class="error">
