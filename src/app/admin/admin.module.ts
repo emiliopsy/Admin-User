@@ -19,8 +19,7 @@ import { MatInputModule } from '@angular/material/input';
 import { ButtonModule } from 'primeng/button';
 import { MatSelectModule } from '@angular/material/select';
 import { FileUploadModule } from 'primeng/fileupload';
-import { ProgressBarModule } from 'primeng/progressbar';
-
+import { MatButtonModule } from '@angular/material/button';
 
 @NgModule({
   declarations: [
@@ -45,8 +44,7 @@ import { ProgressBarModule } from 'primeng/progressbar';
     ButtonModule,
     MatSelectModule,
     FileUploadModule,
-    ProgressBarModule
-
+    MatButtonModule,
 
   ]
 })

@@ -14,4 +14,47 @@
 .avatar-img {
     border-radius: 50%;
     margin-right: 10px;
+    width: 50px;
+    height: 50px;
+    object-fit: cover;
+    object-position: center;
+}
+
+.acction-btn {
+    min-width: 135px;
+    flex-wrap: wrap;
+    button {
+        margin: 0px 5px;
+    }
+}
+
+@media screen and (max-width: 70rem) {
+     :host ::ng-deep {
+        .p-datatable {
+            &.p-datatable-responsive-demo {
+                .p-datatable-thead>tr>th,
+                .p-datatable-tfoot>tr>td {
+                    display: none !important;
+                }
+                .p-datatable-tbody>tr>td {
+                    text-align: left;
+                    display: block;
+                    width: 100%;
+                    float: left;
+                    clear: left;
+                    border: 0 none;
+                    .p-column-title {
+                        padding: 0.4rem;
+                        min-width: 30%;
+                        display: inline-block;
+                        margin: -0.4em 1em -0.4em -0.4rem;
+                        font-weight: bold;
+                    }
+                    &:last-child {
+                        border-bottom: 1px solid var(--surface-d);
+                    }
+                }
+            }
+        }
+    }
 }

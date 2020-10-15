@@ -6,7 +6,7 @@
     </section>
 
     <section *ngIf=" !loanding && !haserror" class="card-body">
-        <p-table styleClass="p-datatable-responsive-demo" [value]="users" [responsive]="true" [rows]="25" [showCurrentPageReport]="true" [loading]="loanding" [paginator]="true" currentPageReportTemplate=" {first} a {last} de {totalRecords} ">
+        <p-table #dt styleClass="p-datatable-responsive-demo" stateStorage="local" stateKey="statedemo-local" [rowHover]="true" [value]="users" [responsive]="true" [rows]="25" [showCurrentPageReport]="true" [loading]="loanding" [paginator]="true" currentPageReportTemplate=" {first} a {last} de {totalRecords} ">
             <ng-template pTemplate="header">
                 <tr>
                     <th pSortableColumn="nrousu">N°
@@ -33,7 +33,7 @@
                     <th pSortableColumn="telefono">Tel.
                         <p-sortIcon field="telefono"></p-sortIcon>
                     </th>
-                    <th style="width: 8rem"></th>
+                    <th></th>
                 </tr>
 
             </ng-template>
@@ -72,8 +72,11 @@
                         <span class="p-column-title">Tel.</span>
                         <span>{{user.telefono}}</span>
                     </td>
-                    <td style="text-align: center">
-                        <button pButton type="button" class="p-button-secondary" icon="pi pi-cog"></button>
+                    <td>
+                        <div class="acction-btn">
+                            <button (click)="editUser(user)" mat-mini-fab color="primary"><span class="material-icons edit-icon">edit</span></button>
+                            <button (click)="deleteUser(user)" mat-mini-fab color="warn"><span class="material-icons">delete</span></button>
+                        </div>
                     </td>
 
                 </tr>
