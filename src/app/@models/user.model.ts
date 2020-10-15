@@ -9,7 +9,7 @@ export class User {
   email: String;
   direccion?: String;
   telefono?: String;
-  imagen64?: Blob;
+  imagen64?: String;
 
   constructor(
     user: User | {
@@ -22,7 +22,7 @@ export class User {
       email: String,
       direccion?: String,
       telefono?: String,
-      imagen64?: Blob,
+      imagen64?: String,
     }
   ) {
     this.nrousu = user.nrousu;

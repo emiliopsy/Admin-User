@@ -6,12 +6,15 @@
             <div class="row">
                 <mat-form-field appearance="outline">
                     <mat-label>Usuario</mat-label>
-                    <input formControlName="usuario" matInput placeholder="Usuario">
+                    <input formControlName="usuario" matInput placeholder="Usuario" required>
+                    <mat-error *ngIf="usuario.errors && usuario.errors.required">Este campo es obligatorio</mat-error>
+                    <mat-error *ngIf="existUser">Este usuario ya existe</mat-error>
                 </mat-form-field>
 
                 <mat-form-field appearance="outline">
                     <mat-label>clave</mat-label>
-                    <input formControlName="clave" matInput placeholder="clave">
+                    <input formControlName="clave" matInput placeholder="clave" required>
+                    <mat-error *ngIf="clave.errors && clave.errors.required">Este campo es obligatorio</mat-error>
                 </mat-form-field>
 
             </div>
@@ -31,12 +34,17 @@
             <div class="row">
                 <mat-form-field appearance="outline">
                     <mat-label>Email</mat-label>
-                    <input formControlName="email" matInput placeholder="email">
+                    <input formControlName="email" matInput placeholder="email" required>
+                    <mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error>
                 </mat-form-field>
 
                 <mat-form-field appearance="outline">
                     <mat-label>Activo</mat-label>
-                    <input formControlName="activo" matInput placeholder="activo">
+                    <mat-select formControlName="activo" required>
+                        <mat-option *ngFor="let op of options" [value]="op.valor">
+                            {{op.text}}
+                        </mat-option>
+                    </mat-select>
                 </mat-form-field>
             </div>
 
@@ -53,21 +61,25 @@
             </div>
 
             <div class="row">
-                <mat-form-field appearance="outline">
-                    <mat-label>Imagen</mat-label>
-                    <input formControlName="imagen64" matInput placeholder="imagen64">
-                </mat-form-field>
+
+                <div class="img-cont">
+                    <img *ngIf="!isFoto" src="{{imgPlaceHolder}}" alt="">
+                    <img *ngIf="isFoto" src="{{getfoto()}}" alt="">
+                    <div>
+                        <input type="file" name="file" id="file" class="inputfile" accept="image/*" (change)="uploadPhoto($event)">
+                        <label *ngIf="!isFoto" for="file" class="foto-perfil">Foto de Derfil</label>
+                        <label *ngIf="isFoto" class="foto-perfil" (click)="deleteFoto()">Quitar</label>
+                    </div>
+                </div>
+
+                <div class="foto-conteines">
+                    <h5 class="error">{{respmsgErr}}</h5>
+                    <h5 class="ok">{{respmsgOk}}</h5>
+                </div>
+
             </div>
-
-
-
-
-
-
-
-
-
-
+            <p-button *ngIf="!loadind" label="Agregar" [disabled]="!registerForm.valid" styleClass="p-button-lg" (onClick)="addUser()" class="add-btn"></p-button>
+            <p-button *ngIf="loadind" label="Guardando..." [disabled]="true" styleClass="p-button-lg" class="add-btn"></p-button>
 
         </form>
     </section>

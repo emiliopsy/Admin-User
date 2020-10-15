@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { User } from 'src/app/@models/user.model';
 import { HeaderService } from 'src/app/services/header.service';
 import { UserService } from 'src/app/services/user.service';
-import { tableConfig } from './tableConfig';
+
 
 @Component({
   selector: 'app-list',
@@ -22,7 +22,7 @@ export class ListComponent implements OnInit {
     private headerService: HeaderService,
     private userService: UserService,
   ) {
-    this.tableHeaders = tableConfig.cols
+
   }
 
   ngOnInit(): void {

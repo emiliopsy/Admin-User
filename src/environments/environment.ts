@@ -4,8 +4,9 @@
 
 export const environment = {
   production: false,
-  GetUserUrl: "http://190.210.222.36:8083//web/pdo/DemoWS/demo/obtenerUsuarios",
-  AuthUrl: "http://190.210.222.36:8083//static/auth/j_spring_security_check",
+  GetUserUrl: "http://190.210.222.36:8081//web/pdo/DemoWS/demo/obtenerUsuarios",
+  GestionarUsuarios: "http://190.210.222.36:8081//web/pdo/DemoWS/demo/gestionarUsuarios",
+  AuthUrl: "http://190.210.222.36:8081//static/auth/j_spring_security_check",
 };
 
 /*

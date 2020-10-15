@@ -16,6 +16,10 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { InputTextModule } from 'primeng/inputtext';
 import { MatFormFieldModule, } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
+import { ButtonModule } from 'primeng/button';
+import { MatSelectModule } from '@angular/material/select';
+import { FileUploadModule } from 'primeng/fileupload';
+import { ProgressBarModule } from 'primeng/progressbar';
 
 
 @NgModule({
@@ -38,6 +42,11 @@ import { MatInputModule } from '@angular/material/input';
     InputTextModule,
     MatFormFieldModule,
     MatInputModule,
+    ButtonModule,
+    MatSelectModule,
+    FileUploadModule,
+    ProgressBarModule
+
 
   ]
 })
