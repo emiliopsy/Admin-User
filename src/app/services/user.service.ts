@@ -60,11 +60,7 @@ export class UserService {
     }
 
     return this._http.put<User[]>(`${environment.GestionarUsuarios}`, body)
-      .pipe(
-        map((resp: any) => {
-          return resp;
-        })
-      )
+      .pipe(map((resp: any) => { return resp; }))
   }
 
   editUser(user: User) {
@@ -80,11 +76,7 @@ export class UserService {
     }
 
     return this._http.put<User[]>(`${environment.GestionarUsuarios}`, body)
-      .pipe(
-        map((resp: any) => {
-          return resp;
-        })
-      )
+      .pipe(map((resp: any) => { return resp; }))
   }
 
 

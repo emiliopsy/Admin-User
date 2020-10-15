@@ -10,6 +10,8 @@ import { MatIconModule } from '@angular/material/icon';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { ErrorInterceptorService } from './services/error-interceptor.service';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { ServiceWorkerModule } from '@angular/service-worker';
+import { environment } from '../environments/environment';
 
 
 
@@ -24,6 +26,7 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
     MatIconModule,
     HttpClientModule,
     MatSnackBarModule,
+    ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production }),
 
   ],
   providers: [

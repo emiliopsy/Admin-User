@@ -78,8 +78,16 @@
                 </div>
 
             </div>
-            <p-button *ngIf="!loadind" label="Agregar" [disabled]="!registerForm.valid" styleClass="p-button-lg" (onClick)="addUser()" class="add-btn"></p-button>
-            <p-button *ngIf="loadind" label="Guardando..." [disabled]="true" styleClass="p-button-lg" class="add-btn"></p-button>
+            <section class="btn-add" *ngIf="!isEditing">
+                <p-button *ngIf="!loadind" label="Agregar" [disabled]="!registerForm.valid" styleClass="p-button-lg" (onClick)="addUser()" class="add-btn"></p-button>
+                <p-button *ngIf="loadind" label="Guardando..." [disabled]="true" styleClass="p-button-lg" class="add-btn"></p-button>
+            </section>
+
+            <section class="btn-edit" *ngIf="isEditing">
+                <p-button [disabled]="loadind" label="Cancelar" (onClick)="cancelEdit()" styleClass="p-button-lg"></p-button>
+                <p-button *ngIf="!loadind" label="guardar" [disabled]="!registerForm.valid" styleClass="p-button-lg" (onClick)="confirmEdit()"></p-button>
+                <p-button *ngIf="loadind" label="Guardando..." [disabled]="true" styleClass="p-button-lg"></p-button>
+            </section>
 
         </form>
     </section>

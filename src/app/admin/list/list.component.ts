@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { MenuItem } from 'primeng/api';
 import { User } from 'src/app/@models/user.model';
+import { EditService } from 'src/app/services/edit.service';
 import { HeaderService } from 'src/app/services/header.service';
 import { UserService } from 'src/app/services/user.service';
 
@@ -25,6 +27,8 @@ export class ListComponent implements OnInit {
   constructor(
     private headerService: HeaderService,
     private userService: UserService,
+    private router: Router,
+    private editService: EditService,
   ) {
 
   }
@@ -92,8 +96,11 @@ export class ListComponent implements OnInit {
 
 
 
-  editUser(user) {
+  editUser(user: User) {
     console.log("editar usuario", user);
+    this.editService.usaerData.next(user);
+    this.router.navigateByUrl("/admin/edit");
+
   }
 
 

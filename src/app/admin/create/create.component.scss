@@ -70,3 +70,16 @@
     align-items: center;
     font-size: 1.2rem;
 }
+
+.btn-edit {
+    display: flex;
+    justify-content: flex-end;
+    width: 100%;
+    p-button {
+        margin: auto 15px;
+    }
+}
+
+.save {
+    background-color: var(--succes-color);
+}

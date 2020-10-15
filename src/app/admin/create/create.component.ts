@@ -1,5 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
+import { User } from 'src/app/@models/user.model';
 import { HeaderService } from 'src/app/services/header.service';
 import { UserService } from 'src/app/services/user.service';
 
@@ -9,6 +11,9 @@ import { UserService } from 'src/app/services/user.service';
   styleUrls: ['./create.component.scss']
 })
 export class CreateComponent implements OnInit {
+
+  @Input() userToEdit: User; // decorate the property with @Input()
+
 
   registerForm: FormGroup;
   existUser: boolean = false;
@@ -20,10 +25,13 @@ export class CreateComponent implements OnInit {
 
   loadind: Boolean = false;
 
+  isEditing: Boolean = false;
+
   constructor(
     private headerService: HeaderService,
     private _fb: FormBuilder,
     private _userService: UserService,
+    private router: Router,
   ) {
     this.headerService.title.next("agregar usuario")
   }
@@ -32,17 +40,36 @@ export class CreateComponent implements OnInit {
 
 
   ngOnInit(): void {
-    this.registerForm = this._fb.group({
-      usuario: ["", [Validators.required]],
-      activo: [null, [Validators.required]],
-      clave: ["", [Validators.required]],
-      nombre: [""],
-      apellido: [""],
-      email: ["", [Validators.required, Validators.email]],
-      direccion: [""],
-      telefono: [""],
-      imagen64: [null],
-    })
+    console.log("userToEdit", this.userToEdit);
+    if (this.userToEdit) {
+      this.registerForm = this._fb.group({
+        nrousu: [this.userToEdit.nrousu],
+        usuario: [this.userToEdit.usuario, [Validators.required]],
+        activo: [this.userToEdit.activo, [Validators.required]],
+        clave: [this.userToEdit.clave, [Validators.required]],
+        nombre: [this.userToEdit.nombre],
+        apellido: [this.userToEdit.apellido],
+        email: [this.userToEdit.email, [Validators.required, Validators.email]],
+        direccion: [this.userToEdit.direccion],
+        telefono: [this.userToEdit.telefono],
+        imagen64: [this.userToEdit.imagen64],
+      })
+      this.userToEdit.imagen64 ? this.isFoto = true : this.isFoto = false;
+      this.isEditing = true;
+    } else {
+      this.registerForm = this._fb.group({
+        usuario: ["", [Validators.required]],
+        activo: [null, [Validators.required]],
+        clave: ["", [Validators.required]],
+        nombre: [""],
+        apellido: [""],
+        email: ["", [Validators.required, Validators.email]],
+        direccion: [""],
+        telefono: [""],
+        imagen64: [null],
+      })
+    }
+
   }
 
   // get nrousu() {
@@ -139,6 +166,29 @@ export class CreateComponent implements OnInit {
 
     this.registerForm.value.imagen64 = null;
     this.isFoto = false;
+  }
+
+  cancelEdit() {
+    console.log("cancelar la edicion");
+    this.router.navigateByUrl("/admin/list")
+  }
+
+
+  confirmEdit() {
+    this.respmsgErr = "";
+    this.respmsgOk = "";
+    this.loadind = true;
+    console.log("this.registerForm.value", this.registerForm.value);
+    this._userService.editUser(this.registerForm.value)
+      .subscribe(resp => {
+        this.loadind = false;
+        console.log("res", resp.response.pcErr);
+        if (resp.response.pcErr) {
+          this.respmsgErr = resp.response.pcErr
+        } else {
+          this.respmsgOk = "Se Guardo el susario exitosamente"
+        }
+      }, (eror => { this.handdleError(eror); }))
   }
 
 }

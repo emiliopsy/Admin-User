@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { User } from 'src/app/@models/user.model';
+import { EditService } from 'src/app/services/edit.service';
 import { HeaderService } from 'src/app/services/header.service';
 
 @Component({
@@ -8,10 +10,21 @@ import { HeaderService } from 'src/app/services/header.service';
 })
 export class EditComponent implements OnInit {
 
-  constructor(private headerService: HeaderService) { }
+  user: User;
+  constructor(
+    private headerService: HeaderService,
+    private editService: EditService,
+
+  ) {
+
+  }
 
   ngOnInit(): void {
-    this.headerService.title.next("Usuarios")
+    this.headerService.title.next("Editar")
+    this.editService.usaerData.subscribe(res => {
+      this.user = res
+      console.log("this.user", this.user);
+    })
   }
 
 }
